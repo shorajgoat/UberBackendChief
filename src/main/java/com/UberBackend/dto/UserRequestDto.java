@@ -13,7 +13,7 @@ public UserRequestDto() {
 	
 }
 	public UserRequestDto(String phoneNo, String email, String name, String password, Role role) {
-		super();
+		
 		this.phoneNo = phoneNo;
 		this.email = email;
 		this.name = name;

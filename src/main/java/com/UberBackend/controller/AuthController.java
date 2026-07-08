@@ -1,5 +1,4 @@
 package com.UberBackend.controller;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -7,12 +6,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.UberBackend.service.UserService;
 import com.UberBackend.utils.JwtUtil;
-
-
-
 import com.UberBackend.Entity.User;
 import com.UberBackend.dto.*;
 
@@ -36,9 +31,4 @@ public ResponseEntity<ApiResponseDto<String>>login(@RequestBody LoginRequestDto 
 	String token=jwtUtil.generateToken(user.getEmail(),user.getRole().name() );
 	return ResponseEntity.ok(ApiResponseDto.success("Successfully logged in", token));
 }
-
-	
-	
-	
-	
 }

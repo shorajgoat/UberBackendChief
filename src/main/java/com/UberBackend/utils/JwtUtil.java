@@ -13,17 +13,36 @@ import io.jsonwebtoken.security.Keys;
 
 @Component
 public class JwtUtil {
-	@Value(("{jwt.secret}"))
-	public  String secret;
-	@Value("{jwt.expiration}")
-	public  Long expiration;
-	
 
+    // Load values from application.properties
+    @Value("${jwt.secret}")
+    private String secret;
+
+    @Value("${jwt.expiration}")
+    private Long expiration;
+
+    // Convert Hex String to Byte Array
+    private byte[] hexStringToByteArray(String hex) {
+        int len = hex.length();
+        byte[] data = new byte[len / 2];
+
+        for (int i = 0; i < len; i += 2) {
+            data[i / 2] = (byte) (
+                    (Character.digit(hex.charAt(i), 16) << 4)
+                    + Character.digit(hex.charAt(i + 1), 16)
+            );
+        }
+
+        return data;
+    }
+
+    // Create Signing Key from Secret
     private Key getSigningKey() {
         byte[] keyBytes = hexStringToByteArray(secret);
         return Keys.hmacShaKeyFor(keyBytes);
     }
 
+    // Create JWT Token
     public String generateToken(String email, String role) {
         return Jwts.builder()
                 .setSubject(email)
@@ -34,23 +53,7 @@ public class JwtUtil {
                 .compact();
     }
 
-    public String extractEmail(String token) {
-        return getClaims(token).getSubject();
-    }
-
-    public String extractRole(String token) {
-        return getClaims(token).get("role", String.class);
-    }
-
-    public boolean isTokenValid(String token) {
-        try {
-            getClaims(token);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
+    // Read and Verify JWT
     private Claims getClaims(String token) {
         return Jwts.parserBuilder()
                 .setSigningKey(getSigningKey())
@@ -59,14 +62,23 @@ public class JwtUtil {
                 .getBody();
     }
 
-    private byte[] hexStringToByteArray(String hex) {
-        int len = hex.length();
-        byte[] data = new byte[len / 2];
-        for (int i = 0; i < len; i += 2) {
-            data[i / 2] = (byte) ((Character.digit(hex.charAt(i), 16) << 4)
-                    + Character.digit(hex.charAt(i + 1), 16));
-        }
-        return data;
+    // Extract Email from JWT
+    public String extractEmail(String token) {
+        return getClaims(token).getSubject();
     }
-	
+
+    // Extract Role from JWT
+    public String extractRole(String token) {
+        return getClaims(token).get("role", String.class);
+    }
+
+    // Check if JWT is Valid
+    public boolean isTokenValid(String token) {
+        try {
+            getClaims(token);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }

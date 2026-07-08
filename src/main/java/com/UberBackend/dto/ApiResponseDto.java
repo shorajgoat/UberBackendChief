@@ -15,13 +15,13 @@ public ApiResponseDto(String message, boolean sucess, T data) {
 
 
 
-public static <T>ApiResponseDto<T>sucess(String message,T data ){
+public static <T>ApiResponseDto<T>success(String message,T data ){
 	return new ApiResponseDto<>(message,true,data);
 }
 public static <T>ApiResponseDto<T>failure(String message){
 	return new ApiResponseDto<>(message,false,null);
 }
-public static <T>ApiResponseDto<T>sucess(String message){
+public static <T>ApiResponseDto<T>success(String message){
 	return new ApiResponseDto<>(message,true,null);
 }
 

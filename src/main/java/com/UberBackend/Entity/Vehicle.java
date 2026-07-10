@@ -14,7 +14,7 @@ import jakarta.persistence.Table;
 public class Vehicle {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 	@OneToOne
 	@JoinColumn(name="driver_profile_id")
 	private DriverProfile driverProfile;
@@ -29,7 +29,7 @@ public class Vehicle {
 	public Vehicle() {
 		
 	}
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 	public DriverProfile getDriverProfile() {

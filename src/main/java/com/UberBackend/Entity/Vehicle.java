@@ -21,7 +21,7 @@ public class Vehicle {
 	@Column(nullable=false)
 	private String model;
 	@Column(nullable=false)
-	private String plateColour;
+	private String plateNumber;
 	@Column(nullable=false)
 	private String colour;
 	@Column(nullable=false)
@@ -44,11 +44,11 @@ public class Vehicle {
 	public void setModel(String model) {
 		this.model = model;
 	}
-	public String getPlateColour() {
-		return plateColour;
+	public String getPlateNumber() {
+		return plateNumber;
 	}
-	public void setPlateColour(String plateColour) {
-		this.plateColour = plateColour;
+	public void setPlateColour(String plateNumber) {
+		this.plateNumber = plateNumber;
 	}
 	public String getColour() {
 		return colour;

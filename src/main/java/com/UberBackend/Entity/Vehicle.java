@@ -47,7 +47,7 @@ public class Vehicle {
 	public String getPlateNumber() {
 		return plateNumber;
 	}
-	public void setPlateColour(String plateNumber) {
+	public void setPlateNumber(String plateNumber) {
 		this.plateNumber = plateNumber;
 	}
 	public String getColour() {

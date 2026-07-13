@@ -4,7 +4,7 @@ public class DriverProfileRequestDto {
 	private String licenseNumber;
 	private String model;
 	private String plateNumber;
-	private String color;
+	private String colour;
 	private String vehicleType;
 	
 	public DriverProfileRequestDto() {
@@ -23,8 +23,8 @@ public class DriverProfileRequestDto {
 		return plateNumber;
 	}
 
-	public String getColor() {
-		return color;
+	public String getColour() {
+		return colour;
 	}
 
 	public String getVehicleType() {

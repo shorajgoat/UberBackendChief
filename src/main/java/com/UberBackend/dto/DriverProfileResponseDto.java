@@ -9,14 +9,17 @@ public class DriverProfileResponseDto {
 	private String licenseNumber;
 	private String model;
 	private String plateNumber;
-	private String color;
+	private String colour;
 	private String vehicleType;
 	private DriverStatus status;
 	private Integer totalRides;
+	public DriverProfileResponseDto() {
+		
+	}
+	
 	public void setId(Long id) {
 		this.id = id;
 	}
-
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -37,8 +40,8 @@ public class DriverProfileResponseDto {
 		this.plateNumber = plateNumber;
 	}
 
-	public void setColor(String color) {
-		this.color = color;
+	public void setColour(String colour) {
+		this.colour = colour;
 	}
 
 	public void setVehicleType(String vehicleType) {
@@ -59,9 +62,6 @@ public class DriverProfileResponseDto {
 
 	private Double rating;
 	
-	public DriverProfileResponseDto() {
-		
-	}
 
 	public Long getId() {
 		return id;
@@ -87,8 +87,8 @@ public class DriverProfileResponseDto {
 		return plateNumber;
 	}
 
-	public String getColor() {
-		return color;
+	public String getColour() {
+		return colour;
 	}
 
 	public String getVehicleType() {

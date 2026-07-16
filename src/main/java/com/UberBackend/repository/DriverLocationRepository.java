@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import com.UberBackend.Entity.DriverLocation;
 public interface DriverLocationRepository extends JpaRepository<DriverLocation,Long>{
 	Optional<DriverLocation>findByUserId(Long id);
-	@Query("SELECT dl FROM DriverLocation dl WHERE dl.isAvailable=true")
+	@Query("SELECT dl FROM DriverLocation dl Where dl.isAvailabl=true" )
 	List<DriverLocation>findAllAvailableDrivers();
 	
 }

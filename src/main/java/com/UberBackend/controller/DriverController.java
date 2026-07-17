@@ -50,7 +50,8 @@ public class DriverController {
 	
 	@PostMapping("/me")
 	public ResponseEntity<ApiResponseDto<DriverProfileResponseDto>>getProfile(
-			@RequestParam String email){
+			@RequestHeader ("Authorization") String authHeader){
+		String email=ExtractEmail(authHeader);
 		DriverProfileResponseDto response=driverService.getDriverProfile(email);
 		return ResponseEntity.status(HttpStatus.OK)
 				.body(ApiResponseDto.success("Successfully fetched",response));

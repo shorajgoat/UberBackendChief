@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.UberBackend.dto.ApiResponseDto;
@@ -45,5 +46,30 @@ public class DriverController {
 				.body(ApiResponseDto.success("Successfully registered as a driver",response));
 		
 	}
+	
+	
+	@PostMapping("/me")
+	public ResponseEntity<ApiResponseDto<DriverProfileResponseDto>>getProfile(
+			@RequestParam String email){
+		DriverProfileResponseDto response=driverService.getDriverProfile(email);
+		return ResponseEntity.status(HttpStatus.OK)
+				.body(ApiResponseDto.success("Successfully fetched",response));
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

@@ -23,7 +23,7 @@ public class Ride {
 private Long id;
 @ManyToOne
 @JoinColumn(name="rider_id",nullable=false)
-private User rider;
+private User user;
 
 @ManyToOne
 @JoinColumn(name="driver_id",nullable=false)
@@ -56,10 +56,10 @@ public Ride() {
 	
 }
 
-public Ride(User rider, User driver, double pickupLatitude, double pickupLongitude, double dropLatitude,
+public Ride(User user, User driver, double pickupLatitude, double pickupLongitude, double dropLatitude,
 		double dropLongitude, RideStatus rideStatus, double fare, double distancekm, LocalDateTime requestedAt,
 		LocalDateTime startedAt, LocalDateTime completedAt) {
-	this.rider = rider;
+	this.user = user;
 	Driver = driver;
 	this.pickupLatitude = pickupLatitude;
 	this.pickupLongitude = pickupLongitude;
@@ -75,12 +75,12 @@ public Ride(User rider, User driver, double pickupLatitude, double pickupLongitu
 public Long getId() {
 	return id;
 }
-public User getRider() {
-	return rider;
+public User getUser() {
+	return user;
 }
 
-public void setRider(User rider) {
-	this.rider = rider;
+public void setUser(User user) {
+	this.user = user;
 }
 
 public User getDriver() {

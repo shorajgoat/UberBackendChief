@@ -91,7 +91,7 @@ public ResponseEntity<ApiResponseDto<String>>updateAvailability
 }
 
 
-@PutMapping("/approve{id}")
+@PutMapping("/approve/{id}")
 public ResponseEntity<ApiResponseDto<DriverProfileResponseDto>>approve
 (@RequestHeader ("Authorization") String authHeader,
 @PathVariable long id){
@@ -103,7 +103,7 @@ public ResponseEntity<ApiResponseDto<DriverProfileResponseDto>>approve
 }
 
 
-@PutMapping("/reject{id}")
+@PutMapping("/reject/{id}")
 public ResponseEntity<ApiResponseDto<DriverProfileResponseDto>>reject
 (@RequestHeader ("Authorization")String authHeader,
 @PathVariable long id){

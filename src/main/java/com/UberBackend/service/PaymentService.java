@@ -5,27 +5,21 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.UberBackend.Entity.Payment;
 import com.UberBackend.Entity.Ride;
 import com.UberBackend.Entity.User;
 import com.UberBackend.Entity.Wallet;
-
 import com.UberBackend.dto.PaymentResponseDto;
-
 import com.UberBackend.enums.PaymentStatus;
 import com.UberBackend.enums.RideStatus;
-
-import com.UberBackend.exceptions.InvalidCredentialsException;
-import com.UberBackend.exceptions.ResourceNotFoundException;
-
 import com.UberBackend.repository.PaymentRepository;
 import com.UberBackend.repository.RideRepository;
 import com.UberBackend.repository.UserRepository;
 import com.UberBackend.repository.WalletRepository;
-import com.UberBackend.Entity.User;
+import com.UberBackend.exceptions.*;
 
+import jakarta.transaction.Transactional;
 
 @Service
 public class PaymentService {

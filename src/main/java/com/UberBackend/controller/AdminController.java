@@ -76,8 +76,8 @@ public class AdminController {
         stats.put("totalDrivers", userRepo.findAllByRole(Role.DRIVER).size());
         stats.put("totalRiders", userRepo.findAllByRole(Role.USER).size());
         stats.put("totalRides", rideRepo.count());
-        stats.put("completedRides", rideRepo.findAllByStatus(RideStatus.COMPLETED).size());
-        stats.put("cancelledRides", rideRepo.findAllByStatus(RideStatus.CANCELLED).size());
+        stats.put("completedRides", rideRepo.findAllByRideStatus(RideStatus.COMPLETED).size());
+        stats.put("cancelledRides", rideRepo.findAllByRideStatus(RideStatus.CANCELLED).size());
         stats.put("pendingDrivers", driverProfileRepo.findAllByStatus(DriverStatus.PENDING).size());
         stats.put("approvedDrivers", driverProfileRepo.findAllByStatus(DriverStatus.APPROVED).size());
 

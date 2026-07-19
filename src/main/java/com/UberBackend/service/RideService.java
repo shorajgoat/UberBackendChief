@@ -182,9 +182,9 @@ public RideResponseDto cancelRide(String email, Long rideId) {
 
 // Get rider ride history
 public List<RideResponseDto> getRiderHistory(String email) {
-    User rider = userRepo.findByEmail(email)
+    User user = userRepo.findByEmail(email)
             .orElseThrow(() -> new ResourceNotFoundException("User not found"));
-    return rideRepo.findAllByRiderIdOrderByRequestedAtDesc(rider.getId())
+    return rideRepo.findAllByUserIdOrderByRequestedAtDesc(user.getId())
             .stream().map(this::mapToDto).collect(Collectors.toList());
 }
 

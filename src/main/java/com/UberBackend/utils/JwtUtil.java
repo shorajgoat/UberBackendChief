@@ -36,10 +36,8 @@ public class JwtUtil {
         return data;
     }
 
-    // Create Signing Key from Secret
     private Key getSigningKey() {
-        byte[] keyBytes = hexStringToByteArray(secret);
-        return Keys.hmacShaKeyFor(keyBytes);
+        return Keys.hmacShaKeyFor(secret.getBytes());
     }
 
     // Create JWT Token

@@ -27,7 +27,7 @@ private User user;
 
 @ManyToOne
 @JoinColumn(name="driver_id",nullable=false)
-private User Driver;
+private User driver;
 @Column(nullable=false)
 private double pickupLatitude;
 @Column(nullable=false)
@@ -60,7 +60,7 @@ public Ride(User user, User driver, double pickupLatitude, double pickupLongitud
 		double dropLongitude, RideStatus rideStatus, double fare, double distancekm, LocalDateTime requestedAt,
 		LocalDateTime startedAt, LocalDateTime completedAt) {
 	this.user = user;
-	Driver = driver;
+	driver = driver;
 	this.pickupLatitude = pickupLatitude;
 	this.pickupLongitude = pickupLongitude;
 	this.dropLatitude = dropLatitude;
@@ -84,11 +84,11 @@ public void setUser(User user) {
 }
 
 public User getDriver() {
-	return Driver;
+	return driver;
 }
 
 public void setDriver(User driver) {
-	Driver = driver;
+	this.driver = driver;
 }
 
 public double getPickupLatitude() {

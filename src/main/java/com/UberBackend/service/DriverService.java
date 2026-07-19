@@ -43,7 +43,7 @@ public class DriverService{
 	@Transactional
 	public  DriverProfileResponseDto register(String email,DriverProfileRequestDto dto) {
 		User user=userRepo.findByEmail(email).orElseThrow(()->new ResourceNotFoundException("User cant be found"));
-		if(user.getRole()!=Role.RIDER) {
+		if(user.getRole()!=Role.USER) {
 			throw new InvalidCredentialsException("Only Driver can create Driver's accound");
 		}
 		if(vehicleRepo.existsByPlateNumber(dto.getPlateNumber())){

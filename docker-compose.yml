@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: uber_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORDuber}
+      MYSQL_DATABASE: uberdb
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  app:
+    build: .
+    container_name: uber_app
+    ports:
+      - "8083:8083"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/uberdb
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORDUber}
+    depends_on:
+      - mysql
+
+volumes:
+  mysql_data:

@@ -58,7 +58,7 @@ public User(String phoneNo, String email, String name, Role role, String passwor
 	this.createdAt = createdAt;
 	this.updatedAt = updatedAt;
 }
-public long getId() {
+public Long getId() {
 	return id;
 }
 public String getPhoneNo() {

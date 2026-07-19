@@ -38,7 +38,7 @@ public class RideService {
 private RideResponseDto mapToDto(Ride ride) {
 	        RideResponseDto dto = new RideResponseDto();
 	        dto.setId(ride.getId());
-	        dto.setRiderName(ride.getRider().getName());
+	        dto.setRiderName(ride.getUser().getName());
 	        dto.setDriverName(ride.getDriver() != null ?
 	                ride.getDriver().getName() : "Not assigned");
 	        dto.setPickupAddress(ride.getPickUpAddress());
@@ -118,7 +118,7 @@ private double calculateFare(double distanceKm) {
     );
 
     Ride ride = new Ride();
-    ride.setRider(rider);
+    ride.setUser(rider);
     ride.setDriver(nearestDriver);
     ride.setPickupLatitude(dto.getPickupLatitude());
     ride.setPickupLongitude(dto.getPickupLongitude());

@@ -37,10 +37,15 @@ private double dropLatitude;
 @Column(nullable=false)
 private double dropLongitude;
 
+
+
 @Enumerated(EnumType.STRING)
 @Column(nullable=false)
 private RideStatus rideStatus;
-
+@Column(nullable=false)
+private String pickUpAddress;
+@Column(nullable=false)
+private String dropAddress;
 private double fare;
 private double distancekm;
 private LocalDateTime requestedAt;
@@ -164,6 +169,22 @@ public LocalDateTime getCompletedAt() {
 
 public void setCompletedAt(LocalDateTime completedAt) {
 	this.completedAt = completedAt;
+}
+
+public String getPickUpAddress() {
+	return pickUpAddress;
+}
+
+public void setPickUpAddress(String pickUpAddress) {
+	this.pickUpAddress = pickUpAddress;
+}
+
+public String getDropAddress() {
+	return dropAddress;
+}
+
+public void setDropAddress(String dropAddress) {
+	this.dropAddress = dropAddress;
 }
 
 

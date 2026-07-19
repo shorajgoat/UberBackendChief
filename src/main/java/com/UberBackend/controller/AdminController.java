@@ -21,7 +21,6 @@ import com.UberBackend.repository.DriverProfileRepository;
 import com.UberBackend.repository.RideRepository;
 import com.UberBackend.repository.UserRepository;
 
-import io.swagger.v3.oas.models.responses.ApiResponse;
 
 
 @RestController

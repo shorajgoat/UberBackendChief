@@ -56,8 +56,8 @@ public class Payment {
     public Ride getRide() { return ride; }
     public void setRide(Ride ride) { this.ride = ride; }
 
-    public User getRider() { return user; }
-    public void setRider(User rider) { this.user = rider; }
+    public User getUser() { return user; }
+    public void setUser(User user) { this.user = user; }
 
     public Double getAmount() { return amount; }
     public void setAmount(Double amount) { this.amount = amount; }
